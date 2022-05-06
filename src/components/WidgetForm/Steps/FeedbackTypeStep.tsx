@@ -1,12 +1,19 @@
-import { feedabckTypes, FeedbackType } from ".."
+import { feedbackTypes, FeedbackType } from ".."
+import { CloseButton } from "../../CloseButton"
 
 interface FeedbackTypeStepProps {
   onFeedbackTypeChanged: (type: FeedbackType) => void
 }
 export const FeedbackTypeStep = ({ onFeedbackTypeChanged }: FeedbackTypeStepProps) => {
   return (
+    <>
+    <header>
+      <span className="text-xl leading-6">Deixe seu feedback</span>
+      <CloseButton />
+    </header>
+
     <div className="flex py-8 gap-2 w-full">
-      { Object.entries(feedabckTypes).map(([key, value]) => {
+      { Object.entries(feedbackTypes).map(([key, value]) => {
           return (
             <button
               key={key}
@@ -19,5 +26,6 @@ export const FeedbackTypeStep = ({ onFeedbackTypeChanged }: FeedbackTypeStepProp
           )
     })}
     </div> 
+    </>
   )
 }
